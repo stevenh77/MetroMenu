@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 
 <head>
-    <title>MetroMenu</title>
+    <title>Metro Menu</title>
     <style type="text/css">
     html, body {
 	    height: 100%;
@@ -18,42 +18,43 @@
     }
     </style>
     <script type="text/javascript" src="Silverlight.js"></script>
-    <script type="text/javascript">
-        function onSilverlightError(sender, args) {
-            var appSource = "";
-            if (sender != null && sender != 0) {
-              appSource = sender.getHost().Source;
-            }
-            
-            var errorType = args.ErrorType;
-            var iErrorCode = args.ErrorCode;
+    <script type="text/javascript" src="SplashScreen.js"></script>
+	<script type="text/javascript">
+	    function onSilverlightError(sender, args) {
+	        var appSource = "";
+	        if (sender != null && sender != 0) {
+	            appSource = sender.getHost().Source;
+	        }
 
-            if (errorType == "ImageError" || errorType == "MediaError") {
-              return;
-            }
+	        var errorType = args.ErrorType;
+	        var iErrorCode = args.ErrorCode;
 
-            var errMsg = "Unhandled Error in Silverlight Application " +  appSource + "\n" ;
+	        if (errorType == "ImageError" || errorType == "MediaError") {
+	            return;
+	        }
 
-            errMsg += "Code: "+ iErrorCode + "    \n";
-            errMsg += "Category: " + errorType + "       \n";
-            errMsg += "Message: " + args.ErrorMessage + "     \n";
+	        var errMsg = "Unhandled Error in Silverlight Application " + appSource + "\n";
 
-            if (errorType == "ParserError") {
-                errMsg += "File: " + args.xamlFile + "     \n";
-                errMsg += "Line: " + args.lineNumber + "     \n";
-                errMsg += "Position: " + args.charPosition + "     \n";
-            }
-            else if (errorType == "RuntimeError") {           
-                if (args.lineNumber != 0) {
-                    errMsg += "Line: " + args.lineNumber + "     \n";
-                    errMsg += "Position: " +  args.charPosition + "     \n";
-                }
-                errMsg += "MethodName: " + args.methodName + "     \n";
-            }
+	        errMsg += "Code: " + iErrorCode + "    \n";
+	        errMsg += "Category: " + errorType + "       \n";
+	        errMsg += "Message: " + args.ErrorMessage + "     \n";
 
-            throw new Error(errMsg);
-        }
-    </script>
+	        if (errorType == "ParserError") {
+	            errMsg += "File: " + args.xamlFile + "     \n";
+	            errMsg += "Line: " + args.lineNumber + "     \n";
+	            errMsg += "Position: " + args.charPosition + "     \n";
+	        }
+	        else if (errorType == "RuntimeError") {
+	            if (args.lineNumber != 0) {
+	                errMsg += "Line: " + args.lineNumber + "     \n";
+	                errMsg += "Position: " + args.charPosition + "     \n";
+	            }
+	            errMsg += "MethodName: " + args.methodName + "     \n";
+	        }
+
+	        throw new Error(errMsg);
+	    }
+	</script>
 </head>
 <body>
     <form id="form1" runat="server" style="height:100%">
@@ -62,6 +63,8 @@
 		  <param name="source" value="ClientBin/MetroMenu.xap"/>
 		  <param name="onError" value="onSilverlightError" />
 		  <param name="background" value="white" />
+			<param name="splashscreensource" value="SplashScreen.xaml" />
+			<param name="onSourceDownloadProgressChanged" value="onSourceDownloadProgressChanged" />
 		  <param name="minRuntimeVersion" value="4.0.60310.0" />
 		  <param name="autoUpgrade" value="true" />
 		  <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.60310.0" style="text-decoration:none">
