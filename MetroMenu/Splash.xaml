@@ -1,0 +1,67 @@
+﻿<navigation:Page x:Class="MetroMenu.Splash"
+                 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                 xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                 xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+                 Title="Splash Page"
+                 d:DesignHeight="480"
+                 d:DesignWidth="640"
+                 mc:Ignorable="d">
+    <UserControl.Projection>
+        <PlaneProjection />
+    </UserControl.Projection>
+
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid x:Name="BackgroundContainer"
+              Background="Black"
+              RenderTransformOrigin="0.5,0.5">
+            <Grid.Triggers>
+                <EventTrigger RoutedEvent="UserControl.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="50" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetX)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="-400" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetZ)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="-500" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="BackgroundContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1" />
+                                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimation d:IsOptimized="True"
+                                             Duration="0:0:1.3"
+                                             Storyboard.TargetName="image"
+                                             Storyboard.TargetProperty="(UIElement.Opacity)"
+                                             To="1">
+                                <DoubleAnimation.EasingFunction>
+                                    <CircleEase EasingMode="EaseOut" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Grid.Triggers>
+            <Grid.Projection>
+                <PlaneProjection />
+            </Grid.Projection>
+            <Grid.RenderTransform>
+                <CompositeTransform />
+            </Grid.RenderTransform>
+            <Image x:Name="image"
+                   Height="95"
+                   Margin="0"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Source="/MetroMenu;component/Images/silverbladetechnology.png"
+                   Stretch="None" />
+        </Grid>
+    </Grid>
+</navigation:Page>
