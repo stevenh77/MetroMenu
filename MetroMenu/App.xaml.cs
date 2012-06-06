@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using TinyMessenger;
 
 namespace MetroMenu
 {
@@ -17,6 +18,7 @@ namespace MetroMenu
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
+            Application.Current.Resources.Add(ResourceKeys.Hub, new TinyMessengerHub());
             this.RootVisual = new Shell();
         }
 

@@ -2,51 +2,36 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:local="clr-namespace:MetroMenu"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" x:Name="userControl"
-             d:DesignHeight="300"
-             d:DesignWidth="400"
+             x:Name="userControl"
              mc:Ignorable="d">
 
     <UserControl.Projection>
         <PlaneProjection />
     </UserControl.Projection>
 
-    <VisualStateManager.VisualStateGroups>
-        <VisualStateGroup x:Name="HideShowMenu">
-            <VisualStateGroup.Transitions>
-                <VisualTransition GeneratedDuration="0:0:0.3" />
-            </VisualStateGroup.Transitions>
-            <VisualState x:Name="HideMenu" />
-            <VisualState x:Name="ShowMenu">
-                <Storyboard>
-                    <DoubleAnimation d:IsOptimized="True"
-                                     Duration="0"
-                                     Storyboard.TargetName="menuPanel"
-                                     Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)"
-                                     To="-60" />
-                </Storyboard>
-            </VisualState>
-        </VisualStateGroup>
-    </VisualStateManager.VisualStateGroups>
-
     <Grid x:Name="LayoutRoot" Background="White">
-    	<VisualStateManager.VisualStateGroups>
-    		<VisualStateGroup x:Name="ShowHideAppBar">
-    			<VisualStateGroup.Transitions>
-    				<VisualTransition GeneratedDuration="0:0:2"/>
-    			</VisualStateGroup.Transitions>
-    			<VisualState x:Name="Show"/>
-    			<VisualState x:Name="Hide">
-    				<Storyboard>
-    					<DoubleAnimation Duration="0" To="61" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)" Storyboard.TargetName="appBar" d:IsOptimized="True"/>
-    				</Storyboard>
-    			</VisualState>
-    		</VisualStateGroup>
-    	</VisualStateManager.VisualStateGroups>
 
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AppBarStates">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.5" />
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="Hide" />
+                <VisualState x:Name="Show">
+                    <Storyboard>
+                        <DoubleAnimation d:IsOptimized="True"
+                                         Duration="0"
+                                         Storyboard.TargetName="appBar"
+                                         Storyboard.TargetProperty="(FrameworkElement.Height)"
+                                         To="70" />
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="60" />
@@ -56,7 +41,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="70" />
         </Grid.RowDefinitions>
 
         <!--  SPLASH STARTS  -->
@@ -65,7 +50,8 @@
               Grid.RowSpan="3"
               Grid.ColumnSpan="2"
               Background="Black"
-              RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+              d:IsHidden="True"
+              RenderTransformOrigin="0.5,0.5">
             <Grid.Triggers>
                 <EventTrigger RoutedEvent="UserControl.Loaded">
                     <BeginStoryboard>
@@ -116,18 +102,51 @@
 
         <!--  SPLASH ENDS  -->
 
-        <!--<local:AppBar x:Name="appBar" Grid.Row="2" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" MouseEnter="appBar_MouseEnter" >
+        <!--  MAIN MENU STARTS  -->
+        <ScrollViewer Grid.Row="1"
+                      Grid.Column="1"
+                      BorderBrush="{x:Null}"
+                      HorizontalScrollBarVisibility="Visible"
+                      VerticalScrollBarVisibility="Hidden">
+
+                <StackPanel Grid.Row="1"
+                            Orientation="Horizontal">
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                    <local:MenuSection Margin="0,0,20,0"/>
+                </StackPanel>
+        </ScrollViewer>
+
+
+        <!--  MAIN MENU END  -->
+
+        <!--  APPBAR STARTS  -->
+        <local:AppBar x:Name="appBar"
+                      Grid.Row="3"
+                      Grid.ColumnSpan="2"
+                      Height="10"
+                      VerticalAlignment="Bottom"
+                      RenderTransformOrigin="0.5,0.5">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseEnter">
                     <ei:GoToStateAction StateName="Show" />
                 </i:EventTrigger>
                 <i:EventTrigger EventName="MouseLeave">
-                    <ei:GoToStateAction StateName="HideMenu" />
+                    <ei:GoToStateAction StateName="Hide" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
             <local:AppBar.RenderTransform>
                 <CompositeTransform />
             </local:AppBar.RenderTransform>
-        </local:AppBar>-->
+        </local:AppBar>
+
+        <!--  APPBAR ENDS  -->
     </Grid>
 </UserControl>

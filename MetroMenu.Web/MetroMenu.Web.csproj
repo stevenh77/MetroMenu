@@ -53,8 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClientBin\MetroMenu.xap" />
-    <Content Include="MetroMenuTestPage.aspx" />
-    <Content Include="MetroMenuTestPage.html" />
+    <Content Include="index.html" />
     <Content Include="Silverlight.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
