@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MetroMenu.AppBar"
+﻿<UserControl x:Class="MetroMenu.Controls.AppBar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:c="clr-namespace:MetroMenu.Controls"
@@ -8,7 +8,7 @@
              Height="70"
              d:DesignWidth="600"
              mc:Ignorable="d">
-    <Grid x:Name="LayoutRoot" Background="Black">
+    <Grid x:Name="LayoutRoot" Background="#FF3D3D3D">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150" />
@@ -26,13 +26,15 @@
                            Width="48"
                            Height="48"
                            Margin="10"
-                           Image="Images/settings.png"
-                           PressedImage="Images/settings.png" />
+                           Click="imageButtonSettings_Click"
+                           Image="/MetroMenu;component/Images/settings.png"
+                           PressedImage="/MetroMenu;component/Images/settings.png" />
             <c:ImageButton x:Name="imageButtonSave"
                            Width="48"
                            Height="48"
                            Margin="10"
-                           Image="Images/save.png"
+                           Click="imageButtonSave_Click"
+                           Image="/MetroMenu;component/Images/save.png"
                            PressedImage="/MetroMenu;component/Images/save.png" />
         </StackPanel>
 
@@ -44,21 +46,23 @@
                            Width="48"
                            Height="48"
                            Margin="10"
+                           Click="imageButtonCamera_Click"
                            Image="/MetroMenu;component/Images/camera.png"
                            PressedImage="/MetroMenu;component/Images/camera.png" />
             <c:ImageButton x:Name="imageButtonFavs"
                            Width="48"
                            Height="48"
                            Margin="10"
+                           Click="imageButtonFavs_Click"
                            Image="/MetroMenu;component/Images/favs.png"
                            PressedImage="/MetroMenu;component/Images/favs.png" />
             <c:ImageButton x:Name="imageButtonFlag"
                            Width="48"
                            Height="48"
                            Margin="10"
+                           Click="imageButtonFlag_Click"
                            Image="/MetroMenu;component/Images/flag.png"
                            PressedImage="/MetroMenu;component/Images/flag.png" />
         </StackPanel>
-
     </Grid>
 </UserControl>

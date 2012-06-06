@@ -83,11 +83,21 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AppBar.xaml.cs">
+    <Compile Include="Controls\AppBar.xaml.cs">
       <DependentUpon>AppBar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MenuSection.xaml.cs">
-      <DependentUpon>MenuSection.xaml</DependentUpon>
+    <Compile Include="Controls\MenuSection4.xaml.cs">
+      <DependentUpon>MenuSection4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MenuSection3.xaml.cs">
+      <DependentUpon>MenuSection3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MenuSection2.xaml.cs">
+      <DependentUpon>MenuSection2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MetroTile.cs" />
+    <Compile Include="Controls\MenuSection1.xaml.cs">
+      <DependentUpon>MenuSection1.xaml</DependentUpon>
     </Compile>
     <Compile Include="ResourceKeys.cs" />
     <Compile Include="Controls\ImageButton.cs" />
@@ -95,18 +105,30 @@
       <DependentUpon>Shell.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TinyMessenger.cs" />
+    <Compile Include="PubSub\TinyMessenger.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="AppBar.xaml">
+    <Page Include="Controls\AppBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MenuSection.xaml">
+    <Page Include="Controls\MenuSection4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MenuSection3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MenuSection2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\MenuSection1.xaml">
       <Generator>MSBuild:MarkupCompilePass1</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -157,6 +179,24 @@
     <Resource Include="Images\search.png" />
     <Resource Include="Images\settings.png" />
     <Resource Include="Images\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\add.png" />
+    <Resource Include="Images\back.png" />
+    <Resource Include="Images\basecircle.png" />
+    <Resource Include="Images\cancel.png" />
+    <Resource Include="Images\check.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\download.png" />
+    <Resource Include="Images\edit.png" />
+    <Resource Include="Images\mail.png" />
+    <Resource Include="Images\minus.png" />
+    <Resource Include="Images\next.png" />
+    <Resource Include="Images\parent.png" />
+    <Resource Include="Images\pause.png" />
+    <Resource Include="Images\play.png" />
+    <Resource Include="Images\refresh.png" />
+    <Resource Include="Images\upload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
