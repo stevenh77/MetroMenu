@@ -1,6 +1,8 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace MetroMenu.Controls
@@ -15,7 +17,7 @@ namespace MetroMenu.Controls
         {
             DefaultStyleKeyProperty.GetMetadata(typeof(MetroTile));
         }
-
+        
         public static readonly DependencyProperty DisplayIconProperty =
             DependencyProperty.Register("DisplayIcon",
                                         typeof(ImageSource),

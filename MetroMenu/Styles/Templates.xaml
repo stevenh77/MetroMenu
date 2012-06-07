@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:c="clr-namespace:MetroMenu.Controls"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+                    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d">
     <Style TargetType="c:ImageButton">
@@ -49,7 +51,31 @@
             <Setter.Value>
                 <ControlTemplate TargetType="c:MetroTile">
                     <Border>
-                        <Grid Background="{Binding Path=Background, RelativeSource={RelativeSource TemplatedParent}}">
+                        <Border.Resources>
+                            <Storyboard x:Name="SpinStoryboard">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                                    <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="720">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </Border.Resources>
+                        <Grid x:Name="MainGrid" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <ei:ControlStoryboardAction Storyboard="{StaticResource SpinStoryboard}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <Grid.Projection>
+                                <PlaneProjection />
+                            </Grid.Projection>
 
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="*" />
@@ -68,9 +94,8 @@
                                    Margin="10,10,0,0"
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
-                                   Source="{Binding Path=DisplayIcon,
-                                                    RelativeSource={RelativeSource TemplatedParent},
-                                                    UpdateSourceTrigger=PropertyChanged}"
+                                   Source="{Binding DisplayIcon,
+                                                    RelativeSource={RelativeSource TemplatedParent}}"
                                    Stretch="None" />
 
                             <TextBlock x:Name="PART_DISPLAY_COUNT_CONTAINER"
@@ -81,10 +106,9 @@
                                        HorizontalAlignment="Right"
                                        FontSize="48"
                                        Foreground="White"
-                                       Text="{Binding Path=DisplayCount,
-                                                      StringFormat=N0,
+                                       Text="{Binding DisplayCount,
                                                       RelativeSource={RelativeSource TemplatedParent},
-                                                      UpdateSourceTrigger=PropertyChanged}" />
+                                                      StringFormat=N0}" />
 
                             <TextBlock x:Name="PART_DISPLAY_TITLE_CONTAINER"
                                        Grid.Row="2"
@@ -96,9 +120,8 @@
                                        VerticalAlignment="Bottom"
                                        FontSize="24"
                                        Foreground="White"
-                                       Text="{Binding Path=DisplayText,
-                                                      RelativeSource={RelativeSource TemplatedParent},
-                                                      UpdateSourceTrigger=PropertyChanged}"
+                                       Text="{Binding DisplayText,
+                                                      RelativeSource={RelativeSource TemplatedParent}}"
                                        TextWrapping="Wrap" />
                         </Grid>
                     </Border>

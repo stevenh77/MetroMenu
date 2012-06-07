@@ -30,32 +30,40 @@
                 <ColumnDefinition Width="250" />
             </Grid.ColumnDefinitions>
 
-            <c:MetroTile Background="{StaticResource MetroLimeBrush}"
+            <c:MetroTile x:Name="MetroTileMenu13"
+                         Background="{StaticResource MetroLimeBrush}"
                          DisplayCount="13"
                          DisplayIcon="/MetroMenu;component/Images/minus.png"
                          DisplayText="Environment"
+                         MouseLeftButtonDown="MetroTileMenu13_MouseLeftButtonDown"
                          ToolTipService.ToolTip="Dummy tile" />
 
-            <c:MetroTile Grid.Column="2"
+            <c:MetroTile x:Name="MetroTileMenu14"
+                         Grid.Column="2"
                          Background="{StaticResource MetroPurpleBrush}"
                          DisplayCount="14"
                          DisplayIcon="/MetroMenu;component/Images/camera.png"
                          DisplayText="Groups"
+                         MouseLeftButtonDown="MetroTileMenu14_MouseLeftButtonDown"
                          ToolTipService.ToolTip="Dummy tile" />
 
-            <c:MetroTile Grid.Row="2"
+            <c:MetroTile x:Name="MetroTileMenu15"
+                         Grid.Row="2"
                          Background="{StaticResource MetroBrownBrush}"
                          DisplayCount="15"
                          DisplayIcon="/MetroMenu;component/Images/delete.png"
                          DisplayText="Recycle Bin"
+                         MouseLeftButtonDown="MetroTileMenu15_MouseLeftButtonDown"
                          ToolTipService.ToolTip="Dummy tile" />
 
-            <c:MetroTile Grid.Row="2"
+            <c:MetroTile x:Name="MetroTileMenu16"
+                         Grid.Row="2"
                          Grid.Column="2"
                          Background="{StaticResource MetroLightBlueBrush}"
                          DisplayCount="16"
                          DisplayIcon="/MetroMenu;component/Images/edit.png"
                          DisplayText="Printers"
+                         MouseLeftButtonDown="MetroTileMenu16_MouseLeftButtonDown"
                          ToolTipService.ToolTip="Dummy tile" />
 
         </Grid>

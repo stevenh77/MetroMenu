@@ -11,7 +11,7 @@ namespace MetroMenu
 			
             var hub = Application.Current.Resources[ResourceKeys.Hub] as ITinyMessengerHub;
             hub.Subscribe<GenericTinyMessage<string>>((m) => { 
-				this.NotificationTextBlock.Text = string.Format("User pressed {0}", m.Content); 
+				this.NotificationTextBlock.Text = m.Content; 
 			});
         }
     }
