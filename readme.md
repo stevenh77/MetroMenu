@@ -4,6 +4,10 @@ This is the source code for the [blog post](http://stevenhollidge.blogspot.co.uk
 
 Source code:  [https://github.com/stevenh77/MetroMenu](https://github.com/stevenh77/MetroMenu)
 
+# Online Demo
+
+[http://stevenhollidge.com/blog-source-code/metromenu](http://stevenhollidge.com/blog-source-code/metromenu)
+
 # Screenshot
 
 ![Screenshot#1](http://stevenhollidge.com/blog-source-code/metromenu/metromenu.PNG)
