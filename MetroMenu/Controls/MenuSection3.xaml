@@ -4,7 +4,7 @@
              xmlns:c="clr-namespace:MetroMenu.Controls"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             Width="510"
+             Width="310"
              mc:Ignorable="d">
 
     <Grid x:Name="LayoutRoot">
@@ -15,7 +15,7 @@
         <TextBlock HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
-                   FontSize="48"
+                   FontSize="32"
                    Text="Reports" />
 
         <Grid Grid.Row="1" Grid.Column="0">
@@ -25,9 +25,9 @@
                 <RowDefinition Height="185" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.5*" />
+                <ColumnDefinition Width="150" />
                 <ColumnDefinition Width="10" />
-                <ColumnDefinition Width="250" />
+                <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
 
             <c:MetroTile x:Name="MetroTileMenu9"

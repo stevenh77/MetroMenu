@@ -117,7 +117,7 @@
             <TextBlock x:Name="CompanyName"
                        Margin="0,0,30,10"
                        FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
-                       FontSize="64"
+                       FontSize="48"
                        Foreground="{StaticResource MetroBlueBrush}"
                        Text="Silverblade Technology" />
 

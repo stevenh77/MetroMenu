@@ -15,7 +15,7 @@
         <TextBlock HorizontalAlignment="Left"
                    VerticalAlignment="Top"
                    FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
-                   FontSize="48"
+                   FontSize="32"
                    Text="Sales" />
 
         <Grid Grid.Row="1" Grid.Column="0">
