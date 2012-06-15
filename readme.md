@@ -14,4 +14,4 @@ Source code:  [https://github.com/stevenh77/MetroMenu](https://github.com/steven
 
 ![Initial Version](http://stevenhollidge.com/blog-source-code/metromenu/metromenu.PNG)
 
-![Second Version](http://stevenhollidge.com/blog-source-code/metromenu/metromenu2.PNG)
+![Second Version](http://stevenhollidge.com/blog-source-code/metromenu2/metromenu2.PNG)
