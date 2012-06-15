@@ -4,10 +4,14 @@ This is the source code for the [blog post](http://stevenhollidge.blogspot.co.uk
 
 Source code:  [https://github.com/stevenh77/MetroMenu](https://github.com/stevenh77/MetroMenu)
 
-# Online Demo
+# Online Demos
 
 [http://stevenhollidge.com/blog-source-code/metromenu](http://stevenhollidge.com/blog-source-code/metromenu)
 
-# Screenshot
+[http://stevenhollidge.com/blog-source-code/metromenu2](http://stevenhollidge.com/blog-source-code/metromenu2)
 
-![Screenshot#1](http://stevenhollidge.com/blog-source-code/metromenu/metromenu.PNG)
+# Screenshots
+
+![Initial Version](http://stevenhollidge.com/blog-source-code/metromenu/metromenu.PNG)
+
+![Second Version](http://stevenhollidge.com/blog-source-code/metromenu/metromenu2.PNG)
