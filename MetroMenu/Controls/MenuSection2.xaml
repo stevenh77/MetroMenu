@@ -16,7 +16,7 @@
                    VerticalAlignment="Top"
                    FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
                    FontSize="32"
-                   Text="Sales" />
+                   Text="Sales" Foreground="White" />
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
                          DisplayIcon="/MetroMenu;component/Images/i.png"
                          DisplayText="Dashboard"
                          MouseLeftButtonDown="MetroTileMenu5_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu6"
                          Grid.Column="2"
@@ -45,7 +45,7 @@
                          DisplayIcon="/MetroMenu;component/Images/download.png"
                          DisplayText="Weekly Meeting"
                          MouseLeftButtonDown="MetroTileMenu6_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu7"
                          Grid.Row="2"
@@ -54,7 +54,7 @@
                          DisplayIcon="/MetroMenu;component/Images/folder.png"
                          DisplayText="Assessments"
                          MouseLeftButtonDown="MetroTileMenu7_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu8"
                          Grid.Row="2"
@@ -64,7 +64,7 @@
                          DisplayIcon="/MetroMenu;component/Images/heart.png"
                          DisplayText="Targets"
                          MouseLeftButtonDown="MetroTileMenu8_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
         </Grid>
 

@@ -6,7 +6,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              Width="410"
              mc:Ignorable="d">
-
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -16,7 +15,7 @@
                    VerticalAlignment="Top"
                    FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
                    FontSize="32"
-                   Text="Admin" />
+                   Text="Admin" Foreground="White" />
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -36,7 +35,11 @@
                          DisplayIcon="/MetroMenu;component/Images/flag.png"
                          DisplayText="Accounts Ledger"
                          MouseLeftButtonDown="MetroTileMenu1_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          >
+            	<c:MetroTile.Projection>
+            		<PlaneProjection/>
+            	</c:MetroTile.Projection>
+            </c:MetroTile>
 
             <c:MetroTile x:Name="MetroTileMenu2"
                          Grid.Column="2"
@@ -45,7 +48,7 @@
                          DisplayIcon="/MetroMenu;component/Images/camera.png"
                          DisplayText="Tools"
                          MouseLeftButtonDown="MetroTileMenu2_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu3"
                          Grid.Row="2"
@@ -54,7 +57,7 @@
                          DisplayIcon="/MetroMenu;component/Images/settings.png"
                          DisplayText="Options"
                          MouseLeftButtonDown="MetroTileMenu3_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu4"
                          Grid.Row="2"
@@ -64,7 +67,7 @@
                          DisplayIcon="/MetroMenu;component/Images/download.png"
                          DisplayText="Help"
                          MouseLeftButtonDown="MetroTileMenu4_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
         </Grid>
 

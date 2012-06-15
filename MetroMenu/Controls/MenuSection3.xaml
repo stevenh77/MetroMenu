@@ -16,7 +16,7 @@
                    VerticalAlignment="Top"
                    FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
                    FontSize="32"
-                   Text="Reports" />
+                   Text="Reports" Foreground="White" />
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
                          DisplayIcon="/MetroMenu;component/Images/play.png"
                          DisplayText="Daily"
                          MouseLeftButtonDown="MetroTileMenu9_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu10"
                          Grid.Column="2"
@@ -45,16 +45,16 @@
                          DisplayIcon="/MetroMenu;component/Images/check.png"
                          DisplayText="Weekly"
                          MouseLeftButtonDown="MetroTileMenu10_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu11"
                          Grid.Row="2"
                          Background="{StaticResource MetroPurpleBrush}"
                          DisplayCount="11"
                          DisplayIcon="/MetroMenu;component/Images/favs.png"
-                         DisplayText="MOnthly"
+                         DisplayText="Monthly"
                          MouseLeftButtonDown="MetroTileMenu11_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu12"
                          Grid.Row="2"
@@ -64,7 +64,7 @@
                          DisplayIcon="/MetroMenu;component/Images/download.png"
                          DisplayText="Yearly"
                          MouseLeftButtonDown="MetroTileMenu12_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
         </Grid>
 

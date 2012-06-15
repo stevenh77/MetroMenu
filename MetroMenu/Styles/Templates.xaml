@@ -52,14 +52,37 @@
                 <ControlTemplate TargetType="c:MetroTile">
                     <Border>
                         <Border.Resources>
-                            <Storyboard x:Name="SpinStoryboard">
+
+                            <!--
+                                <Storyboard x:Name="SpinStoryboard">
                                 <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                                </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="720">
+                                <EasingDoubleKeyFrame.EasingFunction>
+                                <CubicEase EasingMode="EaseInOut" />
+                                </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                                </DoubleAnimationUsingKeyFrames>
+                                </Storyboard>
+                            -->
+
+                            <Storyboard x:Name="ButtonPressStoryboard">
+                                <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainGrid" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.GlobalOffsetZ)">
                                     <EasingDoubleKeyFrame KeyTime="0" Value="0">
                                         <EasingDoubleKeyFrame.EasingFunction>
                                             <CubicEase EasingMode="EaseInOut" />
                                         </EasingDoubleKeyFrame.EasingFunction>
                                     </EasingDoubleKeyFrame>
-                                    <EasingDoubleKeyFrame KeyTime="0:0:1" Value="720">
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="-50">
+                                        <EasingDoubleKeyFrame.EasingFunction>
+                                            <CubicEase EasingMode="EaseInOut" />
+                                        </EasingDoubleKeyFrame.EasingFunction>
+                                    </EasingDoubleKeyFrame>
+                                    <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0">
                                         <EasingDoubleKeyFrame.EasingFunction>
                                             <CubicEase EasingMode="EaseInOut" />
                                         </EasingDoubleKeyFrame.EasingFunction>
@@ -67,10 +90,13 @@
                                 </DoubleAnimationUsingKeyFrames>
                             </Storyboard>
                         </Border.Resources>
-                        <Grid x:Name="MainGrid" Background="{Binding Background, RelativeSource={RelativeSource TemplatedParent}}">
+                        <Grid x:Name="MainGrid"
+                              Background="{Binding Background,
+                                                   RelativeSource={RelativeSource TemplatedParent}}"
+                              Cursor="Hand">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
-                                    <ei:ControlStoryboardAction Storyboard="{StaticResource SpinStoryboard}" />
+                                    <ei:ControlStoryboardAction Storyboard="{StaticResource ButtonPressStoryboard}" />
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                             <Grid.Projection>

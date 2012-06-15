@@ -25,4 +25,10 @@
     <SolidColorBrush x:Key="MetroGreenBrush" Color="{StaticResource MetroGreen}" />
     <SolidColorBrush x:Key="MetroGrayBrush" Color="{StaticResource MetroGray}" />
     <SolidColorBrush x:Key="MetroWhiteBrush" Color="{StaticResource MetroWhite}" />
+    <LinearGradientBrush x:Key="SplitGrayWhiteBackgroundBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+    	<GradientStop Color="#FF222222" Offset="0.596"/>
+    	<GradientStop Color="White" Offset="0.597"/>
+    	<GradientStop Color="#FFE7E7E7" Offset="0.599"/>
+    	<GradientStop Color="White" Offset="0.673"/>
+    </LinearGradientBrush>
 </ResourceDictionary>

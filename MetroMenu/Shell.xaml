@@ -13,164 +13,201 @@
         <PlaneProjection />
     </UserControl.Projection>
 
-    <Grid x:Name="LayoutRoot" Background="White">
+    <Grid x:Name="LayoutRoot" Background="{StaticResource SplitGrayWhiteBackgroundBrush}">
 
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:Name="AppBarStates">
-                <VisualStateGroup.Transitions>
-                    <VisualTransition GeneratedDuration="0:0:0.5" />
-                </VisualStateGroup.Transitions>
-                <VisualState x:Name="Hide" />
-                <VisualState x:Name="Show">
-                    <Storyboard>
-                        <DoubleAnimation d:IsOptimized="True"
-                                         Duration="0"
-                                         Storyboard.TargetName="appBar"
-                                         Storyboard.TargetProperty="(FrameworkElement.Height)"
-                                         To="70" />
-                    </Storyboard>
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="60" />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition />
+			<RowDefinition Height="82" />
+		</Grid.RowDefinitions>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="80" />
-        </Grid.RowDefinitions>
+		<!--  MAIN MENU END  -->
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup x:Name="AppBarStates">
+				<VisualStateGroup.Transitions>
+					<VisualTransition GeneratedDuration="0:0:0.5" />
+				</VisualStateGroup.Transitions>
+				<VisualState x:Name="Hide" />
+				<VisualState x:Name="Show">
+					<Storyboard>
+						<DoubleAnimation d:IsOptimized="True"
+							Duration="0"
+							Storyboard.TargetName="appBar"
+							Storyboard.TargetProperty="(FrameworkElement.Height)"
+							To="70" />
+					</Storyboard>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+		<!--  SPLASH STARTS  -->
 
-        <!--  SPLASH STARTS  -->
+		<Grid x:Name="SplashContainer"
+			Grid.RowSpan="3"
+			Grid.ColumnSpan="2"
+			Background="Black"
+			d:IsHidden="True"
+			RenderTransformOrigin="0.5,0.5" Margin="0,0,0,2">
+			<Grid.Triggers>
+				<EventTrigger RoutedEvent="Canvas.Loaded">
+					<BeginStoryboard>
+						<Storyboard>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
+								<EasingDoubleKeyFrame KeyTime="0" Value="50" />
+								<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetX)">
+								<EasingDoubleKeyFrame KeyTime="0" Value="-400" />
+								<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetZ)">
+								<EasingDoubleKeyFrame KeyTime="0" Value="-500" />
+								<EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetName="SplashContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<EasingDoubleKeyFrame KeyTime="0:0:1" Value="1" />
+								<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" />
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" />
+								<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1" />
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimationUsingKeyFrames Storyboard.TargetName="TopRowText" Storyboard.TargetProperty="(UIElement.Opacity)">
+								<EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" />
+								<EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1" />
+							</DoubleAnimationUsingKeyFrames>
+							<DoubleAnimation d:IsOptimized="True"
+								Duration="0:0:1.3"
+								Storyboard.TargetName="image"
+								Storyboard.TargetProperty="(UIElement.Opacity)"
+								To="1">
+								<DoubleAnimation.EasingFunction>
+									<CircleEase EasingMode="EaseOut" />
+								</DoubleAnimation.EasingFunction>
+							</DoubleAnimation>
+						</Storyboard>
+					</BeginStoryboard>
+				</EventTrigger>
+			</Grid.Triggers>
+			<Grid.Projection>
+				<PlaneProjection />
+			</Grid.Projection>
+			<Grid.RenderTransform>
+				<CompositeTransform />
+			</Grid.RenderTransform>
+			<Image x:Name="image"
+				Height="95"
+				Margin="0"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Center"
+				Source="Images/silverbladetechnology.png"
+				Stretch="None" />
+		</Grid>
 
-        <Grid x:Name="SplashContainer"
-              Grid.RowSpan="3"
-              Grid.ColumnSpan="2"
-              Background="Black"
-              d:IsHidden="True"
-              RenderTransformOrigin="0.5,0.5">
-            <Grid.Triggers>
-                <EventTrigger RoutedEvent="UserControl.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.RotationY)">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="50" />
-                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetX)">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="-400" />
-                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="userControl" Storyboard.TargetProperty="(UIElement.Projection).(PlaneProjection.LocalOffsetZ)">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="-500" />
-                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="SplashContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
-                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1" />
-                                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="MainContainer" Storyboard.TargetProperty="(UIElement.Opacity)">
-                                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" />
-                                <EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="TopRowText" Storyboard.TargetProperty="(UIElement.Opacity)">
-                                <EasingDoubleKeyFrame KeyTime="0:0:1.5" Value="0" />
-                                <EasingDoubleKeyFrame KeyTime="0:0:1.8" Value="1" />
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimation d:IsOptimized="True"
-                                             Duration="0:0:1.3"
-                                             Storyboard.TargetName="image"
-                                             Storyboard.TargetProperty="(UIElement.Opacity)"
-                                             To="1">
-                                <DoubleAnimation.EasingFunction>
-                                    <CircleEase EasingMode="EaseOut" />
-                                </DoubleAnimation.EasingFunction>
-                            </DoubleAnimation>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-            </Grid.Triggers>
-            <Grid.Projection>
-                <PlaneProjection />
-            </Grid.Projection>
-            <Grid.RenderTransform>
-                <CompositeTransform />
-            </Grid.RenderTransform>
-            <Image x:Name="image"
-                   Height="95"
-                   Margin="0"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Source="Images/silverbladetechnology.png"
-                   Stretch="None" />
-        </Grid>
+		<!--  SPLASH ENDS  -->
 
-        <!--  SPLASH ENDS  -->
+		<StackPanel x:Name="TopRowText"
+			Grid.Column="1"
+			Opacity="0"
+			Orientation="Horizontal">
+			<TextBlock x:Name="CompanyName"
+				Margin="0,0,30,10"
+				FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
+				FontSize="48"
+				Foreground="{StaticResource MetroBlueBrush}"
+				Text="Silverblade Technology" />
 
-        <StackPanel x:Name="TopRowText"
-                    Grid.Column="1"
-                    Opacity="0"
-                    Orientation="Horizontal">
-            <TextBlock x:Name="CompanyName"
-                       Margin="0,0,30,10"
-                       FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
-                       FontSize="48"
-                       Foreground="{StaticResource MetroBlueBrush}"
-                       Text="Silverblade Technology" />
+			<Border Margin="10"
+				Background="{StaticResource MetroRedBrush}"
+				CornerRadius="20">
+				<TextBlock x:Name="NotificationTextBlock"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
+					FontSize="32"
+					Foreground="White" />
+			</Border>
+		</StackPanel>
 
-            <Border Margin="10"
-                    Background="{StaticResource MetroRedBrush}"
-                    CornerRadius="20">
-                <TextBlock x:Name="NotificationTextBlock"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Center"
-                           FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
-                           FontSize="32"
-                           Foreground="White" />
-            </Border>
-        </StackPanel>
+		<!--  MAIN MENU STARTS  -->
+		<ScrollViewer x:Name="MainContainer"
+			Grid.Row="1"
+			Grid.Column="1"
+			BorderBrush="{x:Null}"
+			HorizontalScrollBarVisibility="Visible"
+			Opacity="0"
+			VerticalScrollBarVisibility="Hidden">
 
-        <!--  MAIN MENU STARTS  -->
-        <ScrollViewer x:Name="MainContainer"
-                      Grid.Row="1"
-                      Grid.Column="1"
-                      BorderBrush="{x:Null}"
-                      HorizontalScrollBarVisibility="Visible"
-                      Opacity="0"
-                      VerticalScrollBarVisibility="Hidden">
-
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <Controls:MenuSection Margin="0,0,50,0" />
-                <Controls:MenuSection2 Margin="0,0,50,0" />
-                <Controls:MenuSection3 Margin="0,0,50,0" />
-                <Controls:MenuSection4 Margin="0,0,50,0" />
-            </StackPanel>
-        </ScrollViewer>
-        <!--  MAIN MENU END  -->
-
-        <!--  APPBAR STARTS  -->
-        <Controls:AppBar x:Name="appBar"
-                         Grid.Row="3"
-                         Grid.ColumnSpan="2"
-                         Height="10"
-                         VerticalAlignment="Bottom"
-                         RenderTransformOrigin="0.5,0.5">
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="MouseEnter">
-                    <ei:GoToStateAction StateName="Show" />
-                </i:EventTrigger>
-                <i:EventTrigger EventName="MouseLeave">
-                    <ei:GoToStateAction StateName="Hide" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
-            <Controls:AppBar.RenderTransform>
-                <CompositeTransform />
-            </Controls:AppBar.RenderTransform>
-        </Controls:AppBar>
-
-        <!--  APPBAR ENDS  -->
-    </Grid>
+			<StackPanel Grid.Row="1" Orientation="Horizontal">
+				<StackPanel x:Name="ContainerMenu1" Orientation="Vertical" Width="410" Margin="0,0,50,0">
+					<Controls:MenuSection Width="Auto" Canvas.ZIndex="10" />
+					<Rectangle Fill="Black" Height="100" Stroke="Black" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Opacity="0.1" Width="390">
+						<Rectangle.Projection>
+							<PlaneProjection RotationX="111"/>
+						</Rectangle.Projection>
+						<Rectangle.Effect>
+							<BlurEffect Radius="80"/>
+						</Rectangle.Effect>
+					</Rectangle>
+				</StackPanel>
+				<StackPanel x:Name="ContainerMenu2" Orientation="Vertical" Width="510" Margin="0,0,50,0">
+					<Controls:MenuSection2 Width="Auto" />
+					<Rectangle Fill="Black" Height="100" Stroke="Black" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Opacity="0.1" Width="490" Margin="0">
+						<Rectangle.Projection>
+							<PlaneProjection RotationX="111"/>
+						</Rectangle.Projection>
+						<Rectangle.Effect>
+							<BlurEffect Radius="80"/>
+						</Rectangle.Effect>
+					</Rectangle>
+				</StackPanel>
+				<StackPanel x:Name="ContainerMenu3" Orientation="Vertical" Width="310" Margin="0,0,50,0">
+					<Controls:MenuSection3 Width="Auto" />
+					<Rectangle Fill="Black" Height="100" Stroke="Black" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Opacity="0.1" Width="290" Margin="0">
+						<Rectangle.Projection>
+							<PlaneProjection RotationX="111"/>
+						</Rectangle.Projection>
+						<Rectangle.Effect>
+							<BlurEffect Radius="80"/>
+						</Rectangle.Effect>
+					</Rectangle>
+				</StackPanel>
+				<StackPanel x:Name="ContainerMenu4" Orientation="Vertical" Width="410" Margin="0,0,50,0">
+					<Controls:MenuSection4 Width="Auto" />
+					<Rectangle Fill="Black" Height="100" Stroke="Black" StrokeThickness="0" RenderTransformOrigin="0.5,0.5" Opacity="0.1" Width="390" Margin="0">
+						<Rectangle.Projection>
+							<PlaneProjection RotationX="111"/>
+						</Rectangle.Projection>
+						<Rectangle.Effect>
+							<BlurEffect Radius="80"/>
+						</Rectangle.Effect>
+					</Rectangle>
+				</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+		<!--  APPBAR STARTS  -->
+		<Controls:AppBar x:Name="appBar"
+			Grid.Row="2"
+			Grid.ColumnSpan="2"
+			Height="10"
+			VerticalAlignment="Bottom"
+			RenderTransformOrigin="0.5,0.5"
+			d:LayoutOverrides="GridBox">
+			<i:Interaction.Triggers>
+				<i:EventTrigger EventName="MouseEnter">
+					<ei:GoToStateAction StateName="Show" />
+				</i:EventTrigger>
+				<i:EventTrigger EventName="MouseLeave">
+					<ei:GoToStateAction StateName="Hide" />
+				</i:EventTrigger>
+			</i:Interaction.Triggers>
+			<Controls:AppBar.RenderTransform>
+				<CompositeTransform />
+			</Controls:AppBar.RenderTransform>
+		</Controls:AppBar>
+	</Grid>
 </UserControl>

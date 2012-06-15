@@ -16,7 +16,7 @@
                    VerticalAlignment="Top"
                    FontFamily="/MetroMenu;component/Fonts/Fonts.zip#Segoe UI Light"
                    FontSize="32"
-                   Text="Settings" />
+                   Text="Settings" Foreground="White" />
 
         <Grid Grid.Row="1" Grid.Column="0">
             <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
                          DisplayIcon="/MetroMenu;component/Images/minus.png"
                          DisplayText="Environment"
                          MouseLeftButtonDown="MetroTileMenu13_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu14"
                          Grid.Column="2"
@@ -45,7 +45,7 @@
                          DisplayIcon="/MetroMenu;component/Images/camera.png"
                          DisplayText="Groups"
                          MouseLeftButtonDown="MetroTileMenu14_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu15"
                          Grid.Row="2"
@@ -54,7 +54,7 @@
                          DisplayIcon="/MetroMenu;component/Images/delete.png"
                          DisplayText="Recycle Bin"
                          MouseLeftButtonDown="MetroTileMenu15_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
             <c:MetroTile x:Name="MetroTileMenu16"
                          Grid.Row="2"
@@ -64,7 +64,7 @@
                          DisplayIcon="/MetroMenu;component/Images/edit.png"
                          DisplayText="Printers"
                          MouseLeftButtonDown="MetroTileMenu16_MouseLeftButtonDown"
-                         ToolTipService.ToolTip="Dummy tile" />
+                          />
 
         </Grid>
 
